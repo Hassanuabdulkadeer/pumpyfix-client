@@ -5,24 +5,24 @@ import {
   StyleSheet,
   Text,
   View,
-} from 'react-native';
-import React, {useState} from 'react';
-import {ScreenHeaderBg} from '../../../components';
-import Feather from 'react-native-vector-icons/Feather';
-import {Colors} from '../../../constants';
-import {useAppContext} from '../../../context';
-import SearchModal from './searchModal';
+} from "react-native";
+import React, { useState } from "react";
+import { ScreenHeaderBg } from "../../../components";
+import Feather from "react-native-vector-icons/Feather";
+import { Colors } from "../../../constants";
+import { useAppContext } from "../../../context";
+import SearchModal from "./searchModal";
 
 export default function HomeHeader() {
   const [modalVisible, setModalVisible] = useState(false);
-  const {theme, user} = useAppContext();
+  const { theme, user } = useAppContext();
 
-  const styles = styleSheet({theme});
+  const styles = styleSheet({ theme });
   return (
     <ScreenHeaderBg customStyles={styles.screenHeader}>
       <View style={styles.headerUser}>
         <Image
-          source={require('../../../assets/neymar.jpeg')}
+          source={require("../../../assets/null.jpg")}
           style={styles.userImage}
           resizeMode="cover"
         />
@@ -43,14 +43,15 @@ export default function HomeHeader() {
         <Feather name="search" size={30} color={Colors.white} />
         <Pressable
           onPress={() => setModalVisible(true)}
-          style={styles.searchInputContainer}>
+          style={styles.searchInputContainer}
+        >
           <Text style={styles.searchInputText}>Search...</Text>
         </Pressable>
 
         <Feather name="filter" size={24} color={Colors.purple} />
       </View>
 
-      <SearchModal {...{modalVisible, setModalVisible}} />
+      <SearchModal {...{ modalVisible, setModalVisible }} />
     </ScreenHeaderBg>
   );
 }
@@ -61,16 +62,16 @@ const styleSheet = ({}: IStyleSheet) =>
       zIndex: 10,
     },
     headerUser: {
-      flexDirection: 'row',
-      alignItems: 'center',
+      flexDirection: "row",
+      alignItems: "center",
       marginBottom: 24,
-      marginTop: Dimensions.get('window').height < 700 ? 16 : 0,
+      marginTop: Dimensions.get("window").height < 700 ? 16 : 0,
     },
-    userInfo: {flex: 1},
+    userInfo: { flex: 1 },
     nameAndNotification: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
     },
     userImage: {
       width: 60,
@@ -85,21 +86,21 @@ const styleSheet = ({}: IStyleSheet) =>
     },
     username: {
       fontSize: 28,
-      fontWeight: '600',
+      fontWeight: "600",
       color: Colors.white,
-      textTransform: 'capitalize',
+      textTransform: "capitalize",
     },
 
     searchBarContainer: {
       borderRadius: 6,
-      flexDirection: 'row',
-      alignItems: 'center',
+      flexDirection: "row",
+      alignItems: "center",
     },
     searchInputContainer: {
       paddingHorizontal: 10,
       flex: 1,
       height: 40,
-      justifyContent: 'center',
+      justifyContent: "center",
     },
     searchInputText: {
       marginLeft: 16,

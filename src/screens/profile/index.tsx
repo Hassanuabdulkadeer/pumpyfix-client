@@ -6,31 +6,31 @@ import {
   StyleSheet,
   Text,
   View,
-} from 'react-native';
-import React, {useState} from 'react';
-import {useAppContext} from '../../context';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+} from "react-native";
+import React, { useState } from "react";
+import { useAppContext } from "../../context";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import {
   AppButton,
   Divider,
   ScreenHeaderBg,
   ScreenHeaderText,
-} from '../../components';
-import {Colors} from '../../constants';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useAuthToken} from '../../hooks';
+} from "../../components";
+import { Colors } from "../../constants";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { useAuthToken } from "../../hooks";
 
 export default function Profile() {
-  const {theme, setUser, user, setToken} = useAppContext();
-  const styles = styleSheet({theme});
+  const { theme, setUser, user, setToken } = useAppContext();
+  const styles = styleSheet({ theme });
   const [isLoading, setIsLoading] = useState(false);
-  const {removeToken} = useAuthToken();
+  const { removeToken } = useAuthToken();
 
   const handleLogout = async () => {
     setIsLoading(true);
     removeToken();
     setUser(null);
-    setToken('');
+    setToken("");
   };
 
   return (
@@ -42,7 +42,7 @@ export default function Profile() {
       <View style={styles.main}>
         <View style={styles.userInfo}>
           <Image
-            source={require('../../assets/neymar.jpeg')}
+            source={require("../../assets/null.jpg")}
             style={styles.userImg}
           />
           <Text style={styles.userName}>
@@ -56,29 +56,29 @@ export default function Profile() {
             <Ionicons
               name="person-outline"
               size={24}
-              color={theme === 'dark' ? Colors.white : Colors.black}
+              color={theme === "dark" ? Colors.white : Colors.black}
             />
             <Text style={styles.optionText}>Edit Profile</Text>
           </Pressable>
           <Divider
-            color={theme === 'dark' ? Colors.lightGrey : Colors.grey + '70'}
+            color={theme === "dark" ? Colors.lightGrey : Colors.grey + "70"}
           />
           <Pressable style={styles.options}>
             <Ionicons
               name="notifications-outline"
               size={24}
-              color={theme === 'dark' ? Colors.white : Colors.black}
+              color={theme === "dark" ? Colors.white : Colors.black}
             />
             <Text style={styles.optionText}>Notifications</Text>
           </Pressable>
           <Divider
-            color={theme === 'dark' ? Colors.lightGrey : Colors.grey + '70'}
+            color={theme === "dark" ? Colors.lightGrey : Colors.grey + "70"}
           />
           <Pressable style={styles.options}>
             <Ionicons
               name="settings-outline"
               size={24}
-              color={theme === 'dark' ? Colors.white : Colors.black}
+              color={theme === "dark" ? Colors.white : Colors.black}
             />
             <Text style={styles.optionText}>Settings</Text>
           </Pressable>
@@ -103,7 +103,7 @@ export default function Profile() {
   );
 }
 
-const styleSheet = ({theme}: IStyleSheet) =>
+const styleSheet = ({ theme }: IStyleSheet) =>
   StyleSheet.create({
     container: {
       flex: 1,
@@ -118,43 +118,43 @@ const styleSheet = ({theme}: IStyleSheet) =>
     },
 
     userInfo: {
-      alignItems: 'center',
+      alignItems: "center",
       paddingBottom: 16,
     },
     userImg: {
-      width: Dimensions.get('window').height < 700 ? 100 : 130,
-      height: Dimensions.get('window').height < 700 ? 100 : 130,
+      width: Dimensions.get("window").height < 700 ? 100 : 130,
+      height: Dimensions.get("window").height < 700 ? 100 : 130,
       borderRadius: 65,
       borderWidth: 5,
-      borderColor: theme === 'dark' ? Colors.darkGrey : Colors.grey,
-      backgroundColor: theme === 'dark' ? Colors.dark : Colors.lightGrey,
+      borderColor: theme === "dark" ? Colors.darkGrey : Colors.grey,
+      backgroundColor: theme === "dark" ? Colors.dark : Colors.lightGrey,
     },
     userName: {
       fontSize: 24,
-      fontWeight: '700',
+      fontWeight: "700",
       marginTop: 8,
-      color: theme === 'dark' ? Colors.white : Colors.black,
-      textAlign: 'center',
-      textTransform: 'capitalize',
+      color: theme === "dark" ? Colors.white : Colors.black,
+      textAlign: "center",
+      textTransform: "capitalize",
     },
     userEmail: {
       marginTop: 2,
-      color: theme === 'dark' ? Colors.white : Colors.black,
-      textAlign: 'center',
+      color: theme === "dark" ? Colors.white : Colors.black,
+      textAlign: "center",
     },
 
     options: {
       paddingVertical: 20,
-      flexDirection: 'row',
-      alignItems: 'center',
+      flexDirection: "row",
+      alignItems: "center",
     },
     optionText: {
-      color: theme === 'dark' ? Colors.white : Colors.black,
+      color: theme === "dark" ? Colors.white : Colors.black,
       marginLeft: 16,
       fontSize: 16,
-      fontWeight: '500',
+      fontWeight: "500",
     },
     logoutButton: {
-      marginBottom: Dimensions.get('window').height < 700 ? 0 : 8,
+      marginBottom: Dimensions.get("window").height < 700 ? 0 : 8,
     },
   });
